@@ -6,15 +6,26 @@
 	10/4/2016
 '''
 
-''' This does not work yet. It's a work in progress. 
+
 
 import binascii
 import base64
-string=input()
-byte=bytes(string, 'utf-8')
+string=binascii.unhexlify(bytes(input(), 'utf-8'))
 
-hex=binascii.hexlify(byte)
-sixfour= base64.b64encode(hex, altchars=None)
-print (sixfour)
+
+encoded = binascii.b2a_base64(string)
+print (encoded)
+
+
+''' 
+Example:
+
+String:
+
+	49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d
+
+Should Produce:
+
+	SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t
 
 '''
